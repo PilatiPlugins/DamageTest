@@ -1,0 +1,9 @@
+# Available Placeholders
+# {player} - Player name
+# {damage} - Damage amount
+# {cause} - Damage cause
+message: "&c{player} &fdealt &c{damage} &fdamage from &c{cause}"
+onlyPlayers: "&cOnly players can use this command!"
+command: "&6DamageTest {status}" 
+enabled: "activated"
+disabled: "deactivated"
