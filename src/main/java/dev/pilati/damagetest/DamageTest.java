@@ -56,7 +56,26 @@ public class DamageTest extends JavaPlugin implements Listener {
             return;
         }
 
-        String message = getMessage("message")
+        String message = getMessage("damageDealt")
+                            .replace("{player}", player.getName())
+                            .replace("{damage}", String.valueOf(event.getFinalDamage()))
+                            .replace("{cause}", event.getCause().name());
+
+        player.sendMessage(message);
+    }
+
+    @EventHandler
+    public void onDamage(EntityDamageEvent event) {
+        if(!(event.getEntity() instanceof Player)) {
+            return;
+        }
+        
+        Player player = (Player) event.getEntity();
+        if(!hasPlayerMetadata(player)) {
+            return;
+        }
+
+        String message = getMessage("damageTook")
                             .replace("{player}", player.getName())
                             .replace("{damage}", String.valueOf(event.getFinalDamage()))
                             .replace("{cause}", event.getCause().name());
